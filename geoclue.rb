@@ -5,7 +5,7 @@ class Geoclue < Formula
   desc "GeoClue location framework"
   homepage ""
   url "https://github.com/freedesktop/geoclue/archive/refs/tags/0.12.99.tar.gz"
-  sha256 "ee4707ebb122b77093ccc08b51faf3af91f270258be1352a3222b5a21c81b241"
+  sha256 "f198310f77d969f776d70649f505b90eb9d46f826ba77c3e573c086d989d6475"
   license "NOASSERTION"
 
   # depends_on "cmake" => :build
