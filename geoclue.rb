@@ -9,11 +9,13 @@ class Geoclue < Formula
   license "NOASSERTION"
 
   # depends_on "cmake" => :build
+  depends_on "libtool"
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
+    system "ln", "-s", "/usr/local/bin/glibtoolize", "/usr/local/bin/libtoolize"
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
