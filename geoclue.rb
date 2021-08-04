@@ -10,6 +10,7 @@ class Geoclue < Formula
 
   # depends_on "cmake" => :build
   depends_on "libtool"
+  depends_on "dbus-glib"
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
