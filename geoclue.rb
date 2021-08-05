@@ -10,18 +10,19 @@ class Geoclue < Formula
 
   # depends_on "cmake" => :build
   depends_on "libtool"
+  depends_on "automake"
+  depends_on "gtk-doc"
   depends_on "dbus-glib"
 
   def install
-    ENV.PATH="dupa:#{ENV.PATH}"
+    ENV["PATH"] = ENV["PATH"].split(":").push("/usr/local/opt/libtool/libexec/gnubin").join(":")
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
-    bin.install_symlink "#{prefix}/bin/libtool" => "#{prefix}/bin/glibtool"
-    bin.install_symlink "#{prefix}/bin/libtoolize" => "#{prefix}/bin/glibtoolize"
-    
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
+
+    system "rm", "-f", "/usr/local/share/glib-2.0/schemas/gschemas.compiled"
     system "make", "install"
   end
 
