@@ -13,6 +13,7 @@ class Geoclue < Formula
   depends_on "dbus-glib"
 
   def install
+    ENV.PATH="dupa:#{ENV.PATH}"
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
