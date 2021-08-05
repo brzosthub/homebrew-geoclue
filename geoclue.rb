@@ -16,8 +16,8 @@ class Geoclue < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     # https://rubydoc.brew.sh/Formula.html#std_configure_args-instance_method
-    bin.install_symlink "libtool" => "glibtool"
-    bin.install_symlink "libtoolize" => "glibtoolize"
+    bin.install_symlink "#{prefix}/bin/libtool" => "#{prefix}/bin/glibtool"
+    bin.install_symlink "#{prefix}/bin/libtoolize" => "#{prefix}/bin/glibtoolize"
     
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
